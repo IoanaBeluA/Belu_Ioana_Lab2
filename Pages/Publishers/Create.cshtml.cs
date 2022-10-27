@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Belu_Ioana_Lab2.Data;
 using Belu_Ioana_Lab2.Models;
 
-namespace Belu_Ioana_Lab2.Pages.Publisher
+namespace Belu_Ioana_Lab2.Pages.Publishers
 {
     public class CreateModel : PageModel
     {

@@ -8,19 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using Belu_Ioana_Lab2.Data;
 using Belu_Ioana_Lab2.Models;
 
-namespace Belu_Ioana_Lab2.Pages.Publisher
+namespace Belu_Ioana_Lab2.Pages.Publishers
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly Belu_Ioana_Lab2.Data.Belu_Ioana_Lab2Context _context;
 
-        public DeleteModel(Belu_Ioana_Lab2.Data.Belu_Ioana_Lab2Context context)
+        public DetailsModel(Belu_Ioana_Lab2.Data.Belu_Ioana_Lab2Context context)
         {
             _context = context;
         }
 
-        [BindProperty]
-      public Publisher Publisher { get; set; }
+        public Publisher Publisher { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,7 +29,6 @@ namespace Belu_Ioana_Lab2.Pages.Publisher
             }
 
             var publisher = await _context.Publisher.FirstOrDefaultAsync(m => m.ID == id);
-
             if (publisher == null)
             {
                 return NotFound();
@@ -40,24 +38,6 @@ namespace Belu_Ioana_Lab2.Pages.Publisher
                 Publisher = publisher;
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null || _context.Publisher == null)
-            {
-                return NotFound();
-            }
-            var publisher = await _context.Publisher.FindAsync(id);
-
-            if (publisher != null)
-            {
-                Publisher = publisher;
-                _context.Publisher.Remove(Publisher);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }
