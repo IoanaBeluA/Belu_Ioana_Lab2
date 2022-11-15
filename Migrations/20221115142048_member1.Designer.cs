@@ -4,6 +4,7 @@ using Belu_Ioana_Lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Belu_Ioana_Lab2.Migrations
 {
     [DbContext(typeof(Belu_Ioana_Lab2Context))]
-    partial class Belu_Ioana_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20221115142048_member1")]
+    partial class member1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
